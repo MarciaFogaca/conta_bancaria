@@ -7,24 +7,24 @@ export function main(){
     
     while (true){
 
-    console.log(colors.bg.black + colors.fg.yellow + "*************************************************");
-    console.log(colors.bg.black + colors.fg.yellow + "                                                 ");
-    console.log(colors.bg.black + colors.fg.yellow + "            Banco do Brazil com Z                ");
-    console.log(colors.bg.black + colors.fg.yellow + "                                                 ");
-    console.log(colors.bg.black + colors.fg.yellow + "*************************************************");
-    console.log(colors.bg.black + colors.fg.yellow + "                                                 ");
-    console.log(colors.bg.black + colors.fg.yellow + "        1 - Criar Conta                          ");
-    console.log(colors.bg.black + colors.fg.yellow + "        2 - Listar todas as Contas               ");
-    console.log(colors.bg.black + colors.fg.yellow + "        3 - Buscar Conta por Numero              ");
-    console.log(colors.bg.black + colors.fg.yellow + "        4 - Atualizar dados da Conta             ");
-    console.log(colors.bg.black + colors.fg.yellow + "        5 - Apagar Conta                         ");
-    console.log(colors.bg.black + colors.fg.yellow + "        6 - Sacar                                ");
-    console.log(colors.bg.black + colors.fg.yellow + "        7 - Depositar                            ");
-    console.log(colors.bg.black + colors.fg.yellow + "        8 - Transferir valores entre as Contas   ");
-    console.log(colors.bg.black + colors.fg.yellow + "        9 - Sair                                 ");
-    console.log(colors.bg.black + colors.fg.yellow + "                                                 ");
-    console.log(colors.bg.black + colors.fg.yellow + "*************************************************");
-    console.log(colors.bg.black + colors.fg.yellow + "                                                 " + 
+    console.log(colors.bg.blue + colors.fg.yellow + "*************************************************");
+    console.log(colors.bg.blue + colors.fg.yellow + "                                                 ");
+    console.log(colors.bg.blue + colors.fg.yellow + "            Banco do Brazil com Z                ");
+    console.log(colors.bg.blue + colors.fg.yellow + "                                                 ");
+    console.log(colors.bg.blue + colors.fg.yellow + "*************************************************");
+    console.log(colors.bg.blue + colors.fg.yellow + "                                                 ");
+    console.log(colors.bg.blue + colors.fg.yellow + "        1 - Criar Conta                          ");
+    console.log(colors.bg.blue + colors.fg.yellow + "        2 - Listar todas as Contas               ");
+    console.log(colors.bg.blue + colors.fg.yellow + "        3 - Buscar Conta por Numero              ");
+    console.log(colors.bg.blue + colors.fg.yellow + "        4 - Atualizar dados da Conta             ");
+    console.log(colors.bg.blue + colors.fg.yellow + "        5 - Apagar Conta                         ");
+    console.log(colors.bg.blue + colors.fg.yellow + "        6 - Sacar                                ");
+    console.log(colors.bg.blue + colors.fg.yellow + "        7 - Depositar                            ");
+    console.log(colors.bg.blue + colors.fg.yellow + "        8 - Transferir valores entre as Contas   ");
+    console.log(colors.bg.blue + colors.fg.yellow + "        9 - Sair                                 ");
+    console.log(colors.bg.blue + colors.fg.yellow + "                                                 ");
+    console.log(colors.bg.blue + colors.fg.yellow + "*************************************************");
+    console.log(colors.bg.blue + colors.fg.yellow + "                                                 " + 
     colors.reset);
     
     console.log("Entre com a opção desejada: ");
