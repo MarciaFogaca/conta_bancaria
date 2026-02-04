@@ -1,34 +1,57 @@
-import readlinesync = require("readline-sync");
+import leia = require("readline-sync");
 import { colors } from './src/util/Colors';
+import  { Conta } from "./src/model/Conta";
 
-export function main(){
+export function main() {
 
     let opcao: number;
-    
+
+      const c1 = new Conta(1, 1234, "Márcia", 1, 100000.00);
+
+    c1.visualizar();
+
+    // Testes do Método Sacar
+    console.log("Sacar 100,00: ", c1.sacar(100.00));
+    console.log("Sacar 200000.00: ", c1.sacar(200000.00));
+    console.log("Sacar 0.00: ", c1.sacar(0.00));
+
+    // Testes do Método Depositar
+    console.log("Depositar -10.00: ");
+    c1.depositar(-10.00);
+
+    console.log("Depositar 500.00: ");
+    c1.depositar(500.00);
+
+    c1.visualizar();
+
+    // console.log("O Titular da Conta é: ", c1.titular);
+    // console.log("O Saldo da Conta é: ", c1.saldo);
+
+   
     while (true){
 
-    console.log(colors.bg.blue + colors.fg.yellow + "*************************************************");
-    console.log(colors.bg.blue + colors.fg.yellow + "                                                 ");
-    console.log(colors.bg.blue + colors.fg.yellow + "            Banco do Brazil com Z                ");
-    console.log(colors.bg.blue + colors.fg.yellow + "                                                 ");
-    console.log(colors.bg.blue + colors.fg.yellow + "*************************************************");
-    console.log(colors.bg.blue + colors.fg.yellow + "                                                 ");
-    console.log(colors.bg.blue + colors.fg.yellow + "        1 - Criar Conta                          ");
-    console.log(colors.bg.blue + colors.fg.yellow + "        2 - Listar todas as Contas               ");
-    console.log(colors.bg.blue + colors.fg.yellow + "        3 - Buscar Conta por Numero              ");
-    console.log(colors.bg.blue + colors.fg.yellow + "        4 - Atualizar dados da Conta             ");
-    console.log(colors.bg.blue + colors.fg.yellow + "        5 - Apagar Conta                         ");
-    console.log(colors.bg.blue + colors.fg.yellow + "        6 - Sacar                                ");
-    console.log(colors.bg.blue + colors.fg.yellow + "        7 - Depositar                            ");
-    console.log(colors.bg.blue + colors.fg.yellow + "        8 - Transferir valores entre as Contas   ");
-    console.log(colors.bg.blue + colors.fg.yellow + "        9 - Sair                                 ");
-    console.log(colors.bg.blue + colors.fg.yellow + "                                                 ");
-    console.log(colors.bg.blue + colors.fg.yellow + "*************************************************");
-    console.log(colors.bg.blue + colors.fg.yellow + "                                                 " + 
+    console.log(colors.bg.black + colors.fg.yellow+ "************************************************&*");
+    console.log(colors.bg.black + colors.fg.yellow + "                                                 ");
+    console.log(colors.bg.black + colors.fg.yellow + "            Banco do Brazil com Z                ");
+    console.log(colors.bg.black + colors.fg.yellow + "                                                 ");
+    console.log(colors.bg.black + colors.fg.yellow + "*************************************************");
+    console.log(colors.bg.black + colors.fg.yellow + "                                                 ");
+    console.log(colors.bg.black + colors.fg.yellow + "        1 - Criar Conta                          ");
+    console.log(colors.bg.black + colors.fg.yellow + "        2 - Listar todas as Contas               ");
+    console.log(colors.bg.black + colors.fg.yellow + "        3 - Buscar Conta por Numero              ");
+    console.log(colors.bg.black + colors.fg.yellow + "        4 - Atualizar dados da Conta             ");
+    console.log(colors.bg.black + colors.fg.yellow + "        5 - Apagar Conta                         ");
+    console.log(colors.bg.black + colors.fg.yellow + "        6 - Sacar                                ");
+    console.log(colors.bg.black + colors.fg.yellow + "        7 - Depositar                            ");
+    console.log(colors.bg.black + colors.fg.yellow + "        8 - Transferir valores entre as Contas   ");
+    console.log(colors.bg.black + colors.fg.yellow + "        9 - Sair                                 ");
+    console.log(colors.bg.black + colors.fg.yellow + "                                                 ");
+    console.log(colors.bg.black + colors.fg.yellow + "*************************************************");
+    console.log(colors.bg.black + colors.fg.yellow + "                                                 " + 
     colors.reset);
     
     console.log("Entre com a opção desejada: ");
-    opcao = readlinesync.questionInt("");
+    opcao =leia.questionInt("");
 
    if (opcao == 9){
       console.log(colors.fg.greenstrong,
@@ -110,9 +133,8 @@ export function sobre(): void {
 }
 
 function keyPress(): void {
-    console.log(colors.reset, "");
-    console.log("\nPressione enter para continuar...");
-    readlinesync.prompt();
+    console.log(colors.reset,"\nDigite enter para prosseguir...");
+    leia.prompt();
 }
 
 main();
