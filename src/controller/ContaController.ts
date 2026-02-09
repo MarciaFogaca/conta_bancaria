@@ -3,6 +3,7 @@ import { ContaRepository } from "../repository/ContaRepository";
 import { Colors } from "../util/Colors";
 import { formatarMoeda } from "../util/Currency";
 
+
 export class ContaController implements ContaRepository{
         
     private listaContas = new Array<Conta>();
@@ -16,7 +17,7 @@ export class ContaController implements ContaRepository{
         if(buscaConta !== null)
             buscaConta.visualizar();
         else
-            console.log(Colors.fg.red, `\nA Conta número ${numero} não foi encontrada!`, Colors.reset);
+            console.log(Colors.fg.red, `\nA Conta numero ${numero} não foi encontrada!`, Colors.reset);
 
     }
     
@@ -45,7 +46,7 @@ export class ContaController implements ContaRepository{
     cadastrar(conta: Conta): void {
         this.listaContas.push(conta);
         console.log(Colors.fg.green,
-            `\nA Conta número ${conta.numero} foi cadastrada com sucesso!`, Colors.reset);
+            `\nA Conta numero ${conta.numero} foi cadastrada com sucesso!`, Colors.reset);
     }
 
     atualizar(conta: Conta): void {
@@ -54,9 +55,9 @@ export class ContaController implements ContaRepository{
         if(buscaConta !== null){
             this.listaContas[this.listaContas.indexOf(buscaConta)] = conta;
             console.log(Colors.fg.green, 
-                `\nA Conta número ${conta.numero} foi atualizada com sucesso!`, Colors.reset);
+                `\nA Conta numero ${conta.numero} foi atualizada com sucesso!`, Colors.reset);
         }else
-            console.log(Colors.fg.red, `\nA Conta número ${conta.numero} não foi encontrada!`, Colors.reset);
+            console.log(Colors.fg.red, `\nA Conta numero ${conta.numero} não foi encontrada!`, Colors.reset);
     }
 
     deletar(numero: number): void {
@@ -65,9 +66,9 @@ export class ContaController implements ContaRepository{
         if(buscaConta !== null){
             this.listaContas.splice(this.listaContas.indexOf(buscaConta), 1);
             console.log(Colors.fg.green, 
-                `\nA Conta número ${numero} foi deletada com sucesso!`, Colors.reset);
+                `\nA Conta numero ${numero} foi deletada com sucesso!`, Colors.reset);
         }else
-            console.log(Colors.fg.red, `\nA Conta número ${numero} não foi encontrada!`, Colors.reset);
+            console.log(Colors.fg.red, `\nA Conta numero ${numero} não foi encontrada!`, Colors.reset);
     }
 
     // Métodos Bancários
@@ -77,9 +78,9 @@ export class ContaController implements ContaRepository{
         if(buscaConta !== null){
             if(buscaConta.sacar(valor) === true)  
                 console.log(Colors.fg.green, 
-                `\nO Saque no valor de ${formatarMoeda(valor)} na Conta número ${numero} foi realizado com sucesso!`, Colors.reset); 
+                `\nO Saque no valor de ${formatarMoeda(valor)} na Conta numero ${numero} foi realizado com sucesso!`, Colors.reset); 
         }else
-            console.log(Colors.fg.red, `\nA Conta número ${numero} não foi encontrada!`, Colors.reset);
+            console.log(Colors.fg.red, `\nA Conta numero ${numero} não foi encontrada!`, Colors.reset);
     }
 
     depositar(numero: number, valor: number): void {
@@ -88,9 +89,9 @@ export class ContaController implements ContaRepository{
         if(buscaConta !== null){
             buscaConta.depositar(valor)  
             console.log(Colors.fg.green, 
-                `\nO Depósito no valor de ${formatarMoeda(valor)} na Conta número ${numero} foi realizado com sucesso!`, Colors.reset); 
+                `\nO Deposito no valor de ${formatarMoeda(valor)} na Conta numero ${numero} foi realizado com sucesso!`, Colors.reset); 
         }else
-            console.log(Colors.fg.red, `\nA Conta número ${numero} não foi encontrada!`, Colors.reset);
+            console.log(Colors.fg.red, `\nA Conta numero ${numero} não foi encontrada!`, Colors.reset);
     }
 
     transferir(numeroOrigem: number, numeroDestino: number, valor: number): void {
@@ -102,8 +103,8 @@ export class ContaController implements ContaRepository{
             if(buscaContaOrigem.sacar(valor) === true){  
                 buscaContaDestino.depositar(valor);
                 console.log(Colors.fg.green, 
-                `\nA Transferência no valor de ${formatarMoeda(valor)} da Conta número ${numeroOrigem} 
-                 \npara a Conta número ${numeroDestino} foi realizado com sucesso!`, Colors.reset); 
+                `\nA Transferência no valor de ${formatarMoeda(valor)} da Conta numero ${numeroOrigem} 
+                 \npara a Conta numero ${numeroDestino} foi realizado com sucesso!`, Colors.reset); 
             }
         }else
             console.log(Colors.fg.red, `\nA Conta de origem e/ou destino não foram encontradas!`, Colors.reset);

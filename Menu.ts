@@ -6,13 +6,14 @@ import { ContaController } from './src/controller/ContaController';
 import { formatarMoeda } from './src/util/Currency'; 
 
 const contas = new ContaController();
-const tipoContas = ['Conta Corrente', 'Conta Poupança'];
+const tipoContas = ['Conta Corrente', 'Conta Poupanca'];
 
 export function main() { 
     let opcao: number;
 
     // Criando objetos de teste
     const cc1 = new ContaCorrente(contas.gerarNumero(), 456, "Marcia", 1, 15000, 1000);
+
     const cp1 = new ContaPoupanca(contas.gerarNumero(), 789, "Vanessa", 2, 1000, 10);
     contas.cadastrar(cc1);
     contas.cadastrar(cp1);
@@ -24,7 +25,7 @@ export function main() {
         console.log("╠══════════════════════════════════════════════════╣");
         console.log("║   [1] Criar Conta                                ║");
         console.log("║   [2] Listar Todas as Contas                     ║");
-        console.log("║   [3] Buscar Conta por Número                    ║");
+        console.log("║   [3] Buscar Conta por Numero                    ║");
         console.log("║   [4] Atualizar Dados da Conta                   ║");
         console.log("║   [5] Apagar Conta                               ║");
         console.log("║   [6] Sacar                                      ║");
@@ -34,7 +35,7 @@ export function main() {
         console.log("║   [0] Sair                                       ║");
         console.log("╚══════════════════════════════════════════════════╝" + Colors.reset);
       
-        console.log("Entre com a opção desejada:");
+        console.log("Entre com a opcao desejada:");
         opcao = Input.questionInt("");
 
         if (opcao === 0) {
@@ -61,7 +62,7 @@ export function main() {
 }
 
 function criarConta(){
-    console.log("Digite o número da agência: ");
+    console.log("Digite o numero da agencia: ");
     const agencia = Input.questionInt("");
     console.log("Digite o nome do titular: ");
     const titular = Input.question("");
@@ -85,12 +86,12 @@ function listarTodasContas() {
 }
 
 function buscarContaPorNumero() {
-    const numero = Input.questionInt("Digite o número da conta: ");
+    const numero = Input.questionInt("Digite o numero da conta: ");
     contas.procurarPorNumero(numero);
 }
 
 function atualizarConta(): void {
-    const numero = Input.questionInt("Digite o número da conta: ");
+    const numero = Input.questionInt("Digite o numero da conta: ");
     const conta = contas.buscarNoArray(numero);
 
     if (conta !== null) {
@@ -153,20 +154,20 @@ function deletarContaPorNumero() {
 }
 
 function sacar() {
-    const numero = Input.questionInt("Número da conta: ");
+    const numero = Input.questionInt("Numero da conta: ");
     const valor = Input.questionFloat("Valor do saque: ");
     contas.sacar(numero, valor);
 }
 
 function depositar() {
-    const numero = Input.questionInt("Número da conta: ");
-    const valor = Input.questionFloat("Valor do depósito: ");
+    const numero = Input.questionInt("Numero da conta: ");
+    const valor = Input.questionFloat("Valor do deposito: ");
     contas.depositar(numero, valor);
 }
 
 function transferir() {
-    const orig = Input.questionInt("Número da conta de origem: ");
-    const dest = Input.questionInt("Número da conta de destino: ");
+    const orig = Input.questionInt("Numer da conta de origem: ");
+    const dest = Input.questionInt("Numero da conta de destino: ");
     const valor = Input.questionFloat("Valor: ");
     contas.transferir(orig, dest, valor);
 }
