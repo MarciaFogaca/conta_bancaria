@@ -4,7 +4,7 @@ export class ContaPoupanca extends Conta {
 
     private _aniversario: number;
 
-    constructor(numero: number, agencia: number, tipo: number, titular: string, 
+    constructor(numero: number, agencia: number, titular: string, tipo: number, 
     saldo: number, aniversario: number) {
     super(numero, agencia, titular, tipo, saldo);
     this._aniversario = aniversario;

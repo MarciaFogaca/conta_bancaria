@@ -1,6 +1,7 @@
-import { colors } from "../util/Colors";
+import { Colors } from "../util/Colors";
+import { formatarMoeda } from "../util/Currency";
 
-export  abstract class Conta{
+export abstract class Conta{
 
     // Atributos da Classe
     private _numero: number;
@@ -64,12 +65,12 @@ export  abstract class Conta{
     public sacar(valor: number): boolean {
 
         if(valor <= 0){
-            console.log(colors.fg.red, "O valor deve ser positivo", colors.reset);
+            console.log(Colors.fg.red, "\nO valor deve ser positivo", Colors.reset);
             return false;
         }
 
         if(valor > this._saldo){
-            console.log(colors.fg.red, "Saldo Insuficiente!", colors.reset);
+            console.log(Colors.fg.red, "\nSaldo Insuficiente!", Colors.reset);
             return false;
         }
 
@@ -80,7 +81,7 @@ export  abstract class Conta{
     public depositar(valor: number): void {
 
         if(valor <= 0)
-            console.log(colors.fg.red, "O valor deve ser positivo", colors.reset);
+            console.log(Colors.fg.red, "O valor deve ser positivo", Colors.reset);
         else
             this._saldo += valor;
     }
@@ -107,6 +108,6 @@ export  abstract class Conta{
         console.log(`Número da agência: ${this._agencia}`);
         console.log(`Nome do titular: ${this._titular}`);
         console.log(`Tipo da conta: ${tipo}`);
-        console.log(`Saldo da conta: R$ ${this._saldo.toFixed(2)}`);
+        console.log("Saldo Bruto: " + this.saldo);
     }
 }

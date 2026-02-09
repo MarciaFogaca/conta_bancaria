@@ -1,18 +1,6 @@
 import * as iconv from 'iconv-lite';
  
-/**
- * Classe Input - Solução para leitura de caracteres acentuados com o readline-sysnc no Windows
- *
- * PROBLEMA:
- * - No Windows, o console usa a codificação CP850 (não UTF-8)
- * - Quando você digita "João", o console envia bytes em CP850
- * - O Node.js interpreta como UTF-8 e fica "Joo" (perde os acentos)
- *
- * SOLUÇÃO:
- * - Esta classe converte automaticamente CP850 → UTF-8
- * - Você digita "João" e a variável recebe "João" corretamente!
- *
- */
+
 export class Input {
    
     /** Controla se já detectou o encoding (detecta apenas uma vez) */
@@ -21,16 +9,7 @@ export class Input {
     /** Armazena o encoding do console (cp850, cp1252 ou utf8) */
     private static encodingConsole: string = 'cp850';
    
-    /**
-     * Detecta qual encoding o console do Windows está usando
-     *
-     * Executa o comando 'chcp' para descobrir o Code Page ativo:
-     * - 65001 = UTF-8
-     * - 850 = CP850 (padrão no Brasil)
-     * - 1252 = CP1252 (Windows Latin-1)
-     *
-     * Esta detecção acontece apenas UMA vez (na primeira chamada)
-     */
+ 
     private static detectarEncoding(): void {
        
         // Se já detectou antes, não faz novamente
@@ -67,18 +46,7 @@ export class Input {
         this.configurado = true;
     }
    
-    /**
-     * Lê uma linha de texto com acentuação correta
-     *
-     * USO: Para ler TEXTO (nomes, endereços, etc.)
-     *
-     * COMO FUNCIONA:
-     * 1. Detecta o encoding do console
-     * 2. Lê a resposta como 'binary' (bytes brutos)
-     * 3. Converte de CP850 → UTF-8
-     * 4. Retorna a string UTF-8 correta
-     *
-     */
+ 
     static question(pergunta: string): string {
  
         // Detecta o encoding (só na primeira vez)
@@ -104,12 +72,7 @@ export class Input {
         }
     }
  
-    /**
-     * Lê um número INTEIRO com validação automática
-     *
-     * USO: Para ler NÚMEROS INTEIROS (idade, quantidade, opção do menu)
-     *
-     */
+ 
     static questionInt(pergunta: string): number {
         const readlinesync = require('readline-sync');
  
@@ -119,12 +82,7 @@ export class Input {
         });
     }
  
-    /**
-     * Lê um número DECIMAL com validação automática
-     *
-     * USO: Para ler NÚMEROS DECIMAIS (preço, saldo, nota)
-     *
-     */
+   
     static questionFloat(pergunta: string): number {
         const readlinesync = require('readline-sync');
  
@@ -134,36 +92,21 @@ export class Input {
         });
     }
  
-    /**
-     * Exibe um menu de opções para o usuário escolher
-     *
-     * USO: Para campos SELECT (escolher entre várias opções)
-     *
-     */
+  
     static keyInSelect(opcoes: string[], pergunta: string, config?: any): number {
         const readlinesync = require('readline-sync');
  
         return readlinesync.keyInSelect(opcoes, pergunta, config);
     }
  
-    /**
-     * Pausa e aguarda o usuário pressionar ENTER
-     *
-     * USO: Para PAUSAR o programa (ex: "Pressione ENTER para continuar...")
-     *
-     */
+   
     static prompt(): void {
         const readlinesync = require('readline-sync');
  
         readlinesync.prompt();
     }
    
-    /**
-     * Retorna qual encoding está sendo usado (útil para debug)
-     *
-     * USO: Para DEBUGAR problemas de acentuação
-     *
-     */
+  
     static getEncoding(): string {
         this.detectarEncoding();
  
